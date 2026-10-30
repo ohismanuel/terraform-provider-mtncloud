@@ -65,8 +65,9 @@ RESOURCES = [
      "NFS and SMB shares (created, updated and deleted by orders) and Let's Encrypt certificates for instances.",
      ["nfs_share", "smb_share", "letsencrypt_certificate"]),
     ("Compute",
-     "Instances (virtual machines from MTN's OS images), and Kubernetes and Docker clusters from MTN's layouts.",
-     ["instance", "cluster"]),
+     "Instances (virtual machines from MTN's OS images), day-2 settings of instances an order made, and Kubernetes "
+     "and Docker clusters from MTN's layouts.",
+     ["instance", "instance_settings", "cluster"]),
     ("Networking",
      "MTN Networks and MTN Routers, security groups (instance firewalls) and their rules, IP pools "
      "(static IP ranges for a network) and DNS domains (instance hostnames and domain join).",

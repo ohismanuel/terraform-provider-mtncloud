@@ -32,6 +32,7 @@ type Instance struct {
 	ImageName   string
 	PlanID      int64
 	PlanName    string
+	LayoutID    int64  // the layout it was made from; resize plans are listed per layout
 	Environment string // the environment code, for example "production"; "" for none
 	Labels      []string
 	Tags        map[string]string
@@ -136,6 +137,7 @@ type wireInstance struct {
 		Name string `json:"name"`
 	} `json:"instanceType"`
 	Plan          *wireRef  `json:"plan"`
+	Layout        *wireRef  `json:"layout"`
 	NetworkDomain *wireRef  `json:"networkDomain"`
 	Labels        []string  `json:"labels"`
 	Tags          []wireTag `json:"tags"`
@@ -198,6 +200,9 @@ func (w wireInstance) instance() *Instance {
 	}
 	if w.Plan != nil {
 		in.PlanID, in.PlanName = w.Plan.ID, w.Plan.Name
+	}
+	if w.Layout != nil {
+		in.LayoutID = w.Layout.ID
 	}
 	if w.NetworkDomain != nil {
 		in.NetworkDomainID = w.NetworkDomain.ID

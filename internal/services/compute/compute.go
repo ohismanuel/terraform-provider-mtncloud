@@ -15,7 +15,7 @@ import (
 
 // Resources lists every resource in this package, for the provider to register.
 func Resources() []func() resource.Resource {
-	return []func() resource.Resource{newInstance}
+	return []func() resource.Resource{newInstance, newInstanceSettings}
 }
 
 // base gives every resource its client.

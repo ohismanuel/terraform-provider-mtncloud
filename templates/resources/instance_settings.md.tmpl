@@ -1,0 +1,35 @@
+---
+page_title: "mtncloud_instance_settings Resource - terraform-provider-mtncloud"
+subcategory: ""
+description: |-
+{{ .Description | plainmarkdown | trimspace | prefixlines "  " }}
+---
+
+# mtncloud_instance_settings
+
+{{ .Description | trimspace }}
+
+## Example Usage
+
+{{tffile "examples/resources/mtncloud_instance_settings/resource.tf"}}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import is supported using the following syntax:
+
+{{codefile "shell" "examples/resources/mtncloud_instance_settings/import.sh" }}
+
+## Notes
+
+- **Adopts, never deletes.** Create reads the instance and changes only what is set; destroy stops
+  managing it and keeps it. The order (or whatever made it) still deletes it.
+- **A resize restarts the VM.** MTN Cloud doesn't resize a running VM without a restart. Disks keep
+  their size and every disk is sent with its ID, so nothing is added or removed.
+- **Drift.** A plan changed in the console reads back as the real one, and the next apply puts the
+  configured plan back.
+- **Instance deleted by its owner.** The next refresh drops it from state, and the plan then fails
+  with "Instance not found" until `instance_id` names an instance that exists.
+- **Not yet managed** (B-028): disks, network cards, power, security groups, floating IP, labels
+  and tags.

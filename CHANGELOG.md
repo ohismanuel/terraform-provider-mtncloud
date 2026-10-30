@@ -2,6 +2,10 @@
 
 All notable changes to this provider. Format: [Keep a Changelog](https://keepachangelog.com), versions: SemVer.
 
+## Unreleased
+
+- New: `mtncloud_instance_settings`, day-2 settings of an instance something else owns, such as a VM a catalog order made (first part of B-028). It adopts the instance by `instance_id` and, for now, manages its `plan`: a new plan resizes the VM in place (a restart), so an ordered VPN, database or other order's VM can change size without a new order. Disks keep their size and are sent with their IDs; no network cards are sent. A plan changed in the console is put back at the next apply. Destroy keeps the instance. Import by the instance's ID.
+
 ## 0.7.0 (2026-10-30)
 
 - New: `name_prefix` on `mtncloud_mos_bucket`. Bucket names are shared by every MTN Cloud tenant, so a name may already be taken; `name_prefix` makes a free one (the prefix and 8 random characters) when the bucket is created and keeps it. Set `name` or `name_prefix`. A bucket imported by name whose name starts with the prefix isn't replaced.

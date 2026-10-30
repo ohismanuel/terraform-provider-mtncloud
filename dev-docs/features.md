@@ -6,8 +6,8 @@ The cloud (`MTNNG_CLOUD_AZ_1`) is found automatically: you never configure it.
 
 | | Resources | Data sources |
 |---|---|---|
-| Available today | 109 | 111 |
-| Usable with a customer (sub-tenant) login | 109 | 106 |
+| Available today | 110 | 111 |
+| Usable with a customer (sub-tenant) login | 110 | 106 |
 | Master tenant only | 0 | 0 |
 | Not checked yet with a customer login | 0 | 5 |
 | Coming next | 2 | 0 |
@@ -185,12 +185,13 @@ NFS and SMB shares (created, updated and deleted by orders) and Let's Encrypt ce
 
 ### Compute
 
-Instances (virtual machines from MTN's OS images), and Kubernetes and Docker clusters from MTN's layouts.
+Instances (virtual machines from MTN's OS images), day-2 settings of instances an order made, and Kubernetes and Docker clusters from MTN's layouts.
 
 | Type | Customer login |
 |---|---|
 | [`mtncloud_cluster`](../docs/resources/cluster.md) | Yes (read verified) |
 | [`mtncloud_instance`](../docs/resources/instance.md) | Yes, built for customers |
+| [`mtncloud_instance_settings`](../docs/resources/instance_settings.md) | Yes (read verified) |
 
 ### Networking
 
